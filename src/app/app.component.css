@@ -1,0 +1,31 @@
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+error-msg {
+  padding: 10px 0;
+}
+button {
+  padding: 10px;
+  border-radius: 6px;
+  background-color: #b7d6b7;
+  color: #da3f70;
+  font-size: 16px;
+}
+
+label {
+  padding: 10px 0;
+    color: #67a266;
+    font-size: 20px;
+}
+input {
+  border-radius: 5px;
+    padding: 4px;
+    font-size: 20;
+    color: #4c924c;
+    border-color: #98d0987a;
+}
+.content {
+  flex-grow: 1;
+}

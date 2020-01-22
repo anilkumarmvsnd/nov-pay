@@ -1,0 +1,17 @@
+<div style="max-width: 400px;">
+    <form [formGroup]="formData" (submit)="saveUser()">
+        <label for="name">First Name</label>
+        <input formControlName="firstName" id="name" />
+        <error-msg  [fieldName]="'First Name'" [control]="formData.get('firstName')"></error-msg>
+
+        <label for="sname">Second Name</label>
+        <input formControlName="secondName" id="sname" />
+        <error-msg [fieldName]="'Second Name'" [control]="formData.get('secondName')"></error-msg>
+
+        <label for="email">Email</label>
+        <input formControlName="email" id="email" />
+        <error-msg [fieldName]="'Email'" [control]="formData.get('email')"></error-msg>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
