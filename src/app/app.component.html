@@ -1,6 +1,6 @@
 <div style="max-width: 400px;">
     <form [formGroup]="formData" (submit)="saveUser()">
-        <label for="name">First Name</label>
+        <label for="name">Firstttt Name</label>
         <input formControlName="firstName" id="name" />
         <error-msg  [fieldName]="'First Name'" [control]="formData.get('firstName')"></error-msg>
 
@@ -14,4 +14,11 @@
 
         <button type="submit">Submit</button>
     </form>
+</div>
+<div class="check-list">
+    <!-- In progress -->
+    <h2 style="color: red;">
+        Click on the Nodes
+    </h2>
+    <check-tree [obj]="treeObject"></check-tree>
 </div>

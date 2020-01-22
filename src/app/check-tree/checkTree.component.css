@@ -1,0 +1,17 @@
+.check-label-con {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+  }
+  
+  #ddd {
+    display: flex;
+    flex-direction: column;
+    color: #67a266;
+    font-size: 20px;
+  }
+  
+  .input-lable {
+     display: flex;
+     flex-direction: row;
+  }

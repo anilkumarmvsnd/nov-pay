@@ -29,3 +29,10 @@ input {
 .content {
   flex-grow: 1;
 }
+
+.check-list {
+  height: auto;
+  border: 2px solid green;
+  width: 356px;
+  margin-left: 20px;
+}

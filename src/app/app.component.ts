@@ -15,9 +15,11 @@ export class AppComponent {
  }
 
  formData: FormGroup;
+ treeObject: any;
 
  ngOnInit(): void {
    this.formData = this.createForm();
+   this.treeObject = {a: {aa: 'val aa'}, b: {bb: 'c bb'}, c: {cc:'val cc', dd: {ff: 'val ff'}}}
  }
 
  createForm() {

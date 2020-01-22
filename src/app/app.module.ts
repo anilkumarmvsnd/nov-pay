@@ -1,4 +1,5 @@
 import { ErrorMsg } from './errorMsg.component';
+import { CheckTree } from './check-tree/checkTree.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -11,7 +12,7 @@ import { BrowserModule } from '@angular/platform-browser';
  imports: [
      BrowserModule, FormsModule, ReactiveFormsModule
  ],
- declarations: [ AppComponent, ErrorMsg],
+ declarations: [ AppComponent, ErrorMsg, CheckTree],
 })
 export class AppModule {
 }
