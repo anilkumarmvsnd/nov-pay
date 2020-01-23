@@ -41,13 +41,13 @@ export class CheckTree implements OnInit {
     const child = this.getChildrens(key, this.obj);
     const id = $event.target.id;
     const keys = Object.keys(child);
-    this.appendEleWithId(id, keys);
+    this.appendEleWithId.call(this, id, keys);
   }
 
   getChildrens(key, obj) {
     const keys = Object.keys(obj);
     if (keys.indexOf(key) !== -1) {
-      return this.obj[key];
+      return obj[key];
     } else {
       for (const k of keys) {
         if (typeof(obj[k]) === 'object') {
@@ -58,11 +58,10 @@ export class CheckTree implements OnInit {
   }
 
   appendEleWithId(id, keys) {
-    const aa = document.getElementById(id);
+    const aa = this.el.nativeElement.querySelector('#' + id);
     keys.forEach(key => {
-      if (!document.getElementById(key+ 'id')) {
-        const container: ElementRef = this.addCheckBox(key);
-        aa.appendChild(container.getRootNode());
+      if (!document.getElementById(key + 'id')) {
+        aa.appendChild(this.addCheckBox(key));
       }
     });
   }
