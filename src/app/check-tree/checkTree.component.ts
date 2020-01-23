@@ -1,7 +1,4 @@
 import { Component, Input, Renderer2, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { element } from 'protractor';
-import { type } from 'os';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
  selector: 'check-tree',
@@ -15,7 +12,7 @@ export class CheckTree implements OnInit {
   @ViewChild('childCheck', {static: true}) childCheck: ElementRef;
 
   constructor(private renderer: Renderer2, private el: ElementRef) {}
-
+  rslt = {};
   ngOnInit(): void {
     this.initializeCheckBoxes(Object.keys(this.obj));
   }
@@ -38,23 +35,25 @@ export class CheckTree implements OnInit {
 
   lableClicked($event) {
     const key = $event.target.textContent.split('- ')[1];
-    const child = this.getChildrens(key, this.obj);
+    this.rslt = {};
+    const child = this.getChildrens1(key, this.obj);
     const id = $event.target.id;
     const keys = Object.keys(child);
     this.appendEleWithId.call(this, id, keys);
   }
 
-  getChildrens(key, obj) {
-    const keys = Object.keys(obj);
-    if (keys.indexOf(key) !== -1) {
-      return obj[key];
-    } else {
-      for (const k of keys) {
-        if (typeof(obj[k]) === 'object') {
-          this.getChildrens(key, obj[k]);
-        }
+  getChildrens1(key, obj) {
+    for (const k in obj) {
+      if (!(Object.keys(this.rslt).length > 0)) {
+          if (k === key) {
+              this.rslt = obj[k];
+          }
+          if (typeof(obj[k]) === 'object') {
+              this.getChildrens1(key, obj[k]);
+          }
       }
     }
+    return this.rslt;
   }
 
   appendEleWithId(id, keys) {
