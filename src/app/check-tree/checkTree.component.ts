@@ -60,7 +60,7 @@ export class CheckTree implements OnInit {
   appendEleWithId(id, keys) {
     const aa = this.el.nativeElement.querySelector('#' + id);
     keys.forEach(key => {
-      if (!document.getElementById(key + 'id')) {
+      if (!this.el.nativeElement.querySelector('#' + key + 'id')) {
         aa.appendChild(this.addCheckBox(key));
       }
     });
